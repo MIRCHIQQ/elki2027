@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ёлочный Бал — новогодние украшения</title>
+<meta name="description" content="Магазин новогодних украшений: ёлки, стеклянные шары, гирлянды и декор. Доставка до 31 декабря.">
+<meta name="theme-color" content="#0b1d1b">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Marck+Script&family=Yeseva+One&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="intro" aria-hidden="true">
+  <i></i><i></i>
+  <div class="center">
+    <div class="drop">
+      <span class="line"></span>
+      <svg viewBox="0 0 100 120"><defs><radialGradient id="introG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".28" stop-color="#e8b24a"/><stop offset="1" stop-color="#8e4f14"/></radialGradient></defs><rect x="42" y="14" width="16" height="16" rx="3" fill="#caa14a"/><circle cx="50" cy="72" r="42" fill="url(#introG)"/><path d="M10 68Q50 86 90 68L90 80Q50 98 10 80Z" fill="#c42b43" opacity=".9"/><ellipse cx="34" cy="48" rx="10" ry="6" fill="#fff" opacity=".4" transform="rotate(-30 34 48)"/></svg>
+    </div>
+    <div class="intro-name">Ёлочный Бал</div>
+    <div class="intro-sub">всё для новогодней ёлки</div>
+  </div>
+</div>
+
+<canvas class="snow" id="snow" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" data-go="top" aria-label="Ёлочный Бал, наверх">
+      <svg viewBox="0 0 30 34" aria-hidden="true"><defs><radialGradient id="lgG" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".3" stop-color="#e8b24a"/><stop offset="1" stop-color="#a8681f"/></radialGradient></defs><rect x="11" y="3" width="8" height="6" rx="1.5" fill="#caa14a"/><circle cx="15" cy="21" r="12" fill="url(#lgG)"/><path d="M4 20q11 6 22 0" stroke="#c42b43" stroke-width="3" fill="none"/></svg>
+      Ёлочный Бал
+    </a>
+    <nav class="nav" aria-label="Разделы сайта">
+      <a href="#catalog" data-go="catalog">Каталог</a>
+      <a href="#sets" data-go="sets">Подборки</a>
+      <a href="#delivery" data-go="delivery">Доставка</a>
+    </nav>
+    <button class="icon-btn snowbtn" id="snowBtn" type="button" aria-pressed="true" title="Включить или выключить снег">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9.6 3.6L12 6l2.4-2.4M9.6 20.4L12 18l2.4 2.4"/></svg>
+      <span>Снег</span>
+    </button>
+    <button class="icon-btn cartbtn" id="cartBtn" type="button" aria-label="Открыть корзину">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+      <span class="lbl">Корзина</span>
+      <span class="badge" id="cartCount">0</span>
+    </button>
+  </div>
+  <div class="prog" aria-hidden="true"><i></i><b></b></div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="garland" id="garland" aria-hidden="true"></div>
+    <div class="hangs" id="hangs" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow ent" style="--k:0">с наступающим!</p>
+        <h1 id="h1" class="ent" style="--k:1">Новый год начинается <em>с ёлки</em></h1>
+        <p class="lead ent" style="--k:2">Ели, стеклянные шары, гирлянды и мелочи, из которых складывается праздничный дом. Выберите сейчас, и всё приедет до 31 декабря.</p>
+        <div class="cta ent" style="--k:3">
+          <a class="btn btn-gold" href="#catalog" data-go="catalog">Смотреть каталог</a>
+          <a class="btn btn-line" href="#sets" data-go="sets">Готовые подборки</a>
+        </div>
+        <p class="count-cap ent" style="--k:4">До 1 января осталось</p>
+        <div class="count ent" style="--k:5" id="count" role="timer" aria-label="Время до Нового года">
+          <div><b id="cd-d">0</b><span id="cd-dl">дней</span></div>
+          <div><b id="cd-h">00</b><span>часов</span></div>
+          <div><b id="cd-m">00</b><span>минут</span></div>
+          <div><b id="cd-s">00</b><span>секунд</span></div>
+        </div>
+      </div>
+      <div class="tree ent" style="--k:2" id="tree" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="candy" aria-hidden="true"></div>
+  <div class="belt" aria-hidden="true">
+    <div class="belt-track" id="belt">
+      <span>Доставка до 31 декабря</span><span>Стекло ручной работы</span><span>Бесплатная доставка от 5 000 ₽</span><span>Подарочная упаковка</span><span>Возврат 14 дней</span><span>Гирлянды с гарантией</span>
+    </div>
+  </div>
+
+  <section class="sec" id="catalog" aria-labelledby="h-catalog">
+    <div class="wrap">
+      <div class="rv">
+        <p class="kicker">каталог</p>
+        <h2 id="h-catalog">Что повесить, поставить и зажечь</h2>
+      </div>
+      <div class="bar rv">
+        <div class="chips" id="chips" role="group" aria-label="Категории"></div>
+        <label class="sort" for="sort">Порядок
+          <select id="sort">
+            <option value="def">Сначала популярные</option>
+            <option value="asc">Сначала дешевле</option>
+            <option value="desc">Сначала дороже</option>
+          </select>
+        </label>
+      </div>
+      <div id="colNote"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="sets" aria-labelledby="h-sets">
+    <div class="wrap">
+      <div class="rv">
+        <p class="kicker">подборки</p>
+        <h2 id="h-sets">Выберите настроение, остальное мы подобрали</h2>
+      </div>
+      <div class="cols rv" id="cols"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="delivery" aria-labelledby="h-delivery">
+    <div class="wrap">
+      <div class="rv">
+        <p class="kicker">доставка и упаковка</p>
+        <h2 id="h-delivery">Довезём целыми и до праздника</h2>
+      </div>
+      <div class="perks rv">
+        <div class="perk">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M3 9h18v15H3z"/><path d="M21 14h7l5 5v5H21z"/><circle cx="10" cy="26" r="3"/><circle cx="26" cy="26" r="3"/></svg>
+          <h3>Бесплатно от 5 000 ₽</h3>
+          <p>Курьер привезёт заказ до двери. Ёлки выше двух метров поднимем на этаж.</p>
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3l13 6v18l-13 6-13-6V9z"/><path d="M5 9l13 6 13-6M18 15v18"/></svg>
+          <h3>Стекло не бьётся в пути</h3>
+          <p>Каждый шар лежит в своей ячейке из гофрокартона и обёрнут воздушной плёнкой.</p>
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M8 14h16a7 7 0 010 14H12"/><path d="M13 8l-6 6 6 6"/></svg>
+          <h3>Возврат 14 дней</h3>
+          <p>Не подошёл оттенок или размер, вернём деньги, если упаковка не вскрыта.</p>
+        </div>
+        <div class="perk">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><rect x="5" y="14" width="26" height="18" rx="2"/><path d="M3 10h30v4H3zM18 10v22"/><path d="M18 10c-4-6-10-5-8-1 1 2 6 1 8 1zm0 0c4-6 10-5 8-1-1 2-6 1-8 1z"/></svg>
+          <h3>Подарочная упаковка</h3>
+          <p>Завернём в крафт с лентой и открыткой. Бесплатно при заказе от 3 000 ₽.</p>
+        </div>
+      </div>
+      <div class="deadline rv">
+        <p>Закажите до 25 декабря, привезём до 31-го</p>
+        <a class="btn" href="#catalog" data-go="catalog">Выбрать украшения</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top" data-go="top">Ёлочный Бал</a>
+      <p>Украшения для ёлки и дома. Это демонстрационный сайт: заказы никуда не отправляются.</p>
+    </div>
+    <div>
+      <p>Работаем ежедневно с 10:00 до 21:00</p>
+      <button class="link" type="button" data-go="top">Наверх</button>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="d-head">
+    <h2 id="dTitle">Корзина</h2>
+    <button class="x" id="dClose" type="button" aria-label="Закрыть корзину">×</button>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot"></div>
+</aside>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
